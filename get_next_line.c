@@ -6,7 +6,7 @@
 /*   By: fakuz <fakuz@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:49:34 by fakuz             #+#    #+#             */
-/*   Updated: 2025/08/27 10:12:59 by fakuz            ###   ########.fr       */
+/*   Updated: 2025/08/27 11:02:06 by fakuz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static char	*update_stash(char *readed_part)
 	}
 	rest = ft_substr(readed_part, addr_nl_index + 1, ft_strlen(readed_part));
 	free(readed_part);
-	if (rest && !*rest)
+	if (!rest && !*rest)
 	{
 		free(rest);
 		return (NULL);
