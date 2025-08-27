@@ -1,27 +1,25 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fakuz <fakuz@student.42istanbul.com.tr>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 15:37:18 by fakuz             #+#    #+#             */
-/*   Updated: 2025/07/25 19:15:59 by fakuz            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+//  get_next_line.h
+//  get_next_line
+//
+//  Created by Faruk Kuz on 7.08.2025.
+//
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <stdlib.h>
+# include <unistd.h>
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-# include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
 
 char	*get_next_line(int fd);
-
+size_t	ft_strlen(char *s);
+int		ft_strchr(char *s, int c);
+char	*ft_strdup(char *s);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif

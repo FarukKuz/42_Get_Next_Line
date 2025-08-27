@@ -1,0 +1,87 @@
+asfadtgsdtgsrt
+bb
+ccc
+dddd
+eeeee
+ffffff
+42ggggg
+111
+222
+333343456787654356765456765476547654764765
+444
+555
+666
+777
+888
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+join(static, d)
+static = ar
+
+
+
+
+asjfgasdjhfghashdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+qwrweqrwetkwjent
+
+/* static int	ctrl_newline(char *dest)
+{
+	int	i;
+
+	i = 0;
+	while (dest[i])
+	{
+		if (dest[i++] == '\n')
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+static char	*read_line(int fd, char *dest)
+{
+	char	for_read[BUFFER_SIZE + 1];
+	ssize_t	buff_size;
+	char	*new_dest;
+	int		i;
+
+	buff_size = read(fd, for_read, BUFFER_SIZE);
+	if (buff_size <= 0)
+		return (dest);
+	i = 0;
+	printf("--%tu--\n", buff_size);
+	while (i <= buff_size)
+	{
+		if (dest == NULL)
+			dest = ft_strdup("");
+		if (for_read[i] == '\n')
+		{
+			for_read[buff_size] = '\0';
+			new_dest = ft_substr(for_read, 0, i);
+			break ;
+		}
+		if (!for_read[ctrl_newline(new_dest)])
+			buff_size = read(fd, for_read, BUFFER_SIZE);
+		i++;
+	}
+	return (new_dest);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*dest;
+	char		*str;
+	ssize_t		buff_size;
+	int			i;
+	int			j;
+
+	dest = read_line(fd, dest);
+	str = ft_strdup(dest);
+	return (str);
+}
+ */
