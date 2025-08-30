@@ -6,7 +6,7 @@
 /*   By: fakuz <fakuz@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:50:54 by fakuz             #+#    #+#             */
-/*   Updated: 2025/08/27 09:43:58 by fakuz            ###   ########.fr       */
+/*   Updated: 2025/08/30 20:21:30 by fakuz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strdup(char *s)
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (i < ft_strlen(s))
 	{
 		dest[i] = s[i];
 		i++;
@@ -95,14 +95,14 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (dest);
 }
 
-int	ft_strchr(char *s, int c)
+size_t	ft_strchr(char *s, int c)
 {
 	size_t	i;
 
 	if (!s)
 		return (0);
 	i = 0;
-	while (s[i])
+	while (i < ft_strlen(s))
 	{
 		if (s[i] == (char)c)
 			return (i);

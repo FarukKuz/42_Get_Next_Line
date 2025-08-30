@@ -6,7 +6,7 @@
 /*   By: fakuz <fakuz@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:49:34 by fakuz             #+#    #+#             */
-/*   Updated: 2025/08/27 11:02:06 by fakuz            ###   ########.fr       */
+/*   Updated: 2025/08/30 20:31:41 by fakuz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static char	*read_line(int fd, char *readed_part)
 	ssize_t	readed_len;
 	char	*tmp;
 
-	readed_len = 1;
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
+	readed_len = 1;
 	while (!ft_strchr(readed_part, '\n') && readed_len > 0)
 	{
 		readed_len = read(fd, buf, BUFFER_SIZE);
@@ -41,10 +41,10 @@ static char	*read_line(int fd, char *readed_part)
 	return (readed_part);
 }
 
-static char	*extract_line(char *readed_part)
+static char	*selected_line(char *readed_part)
 {
 	size_t	addr_nl_index;
-	int		i;
+	size_t	i;
 
 	if (!readed_part || !*readed_part)
 		return (NULL);
@@ -52,17 +52,15 @@ static char	*extract_line(char *readed_part)
 	i = 0;
 	while (readed_part[i])
 	{
-		if (i == addr_nl_index)
-			break ;
+		if (addr_nl_index)
+			return (ft_substr(readed_part, 0, addr_nl_index + 1));
 		i++;
 	}
 	return (ft_substr(readed_part, 0, i));
 }
 
-static char	*update_stash(char *readed_part)
+static char	*update_readed(char *readed_part)
 {
-	char	*nl;
-	size_t	start;
 	size_t	addr_nl_index;
 	char	*rest;
 
@@ -90,11 +88,11 @@ char	*get_next_line(int fd)
 	char		*dest;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free(readed_part), NULL);
 	readed_part = read_line(fd, readed_part);
 	if (!readed_part)
 		return (NULL);
-	dest = extract_line(readed_part);
-	readed_part = update_stash(readed_part);
+	dest = selected_line(readed_part);
+	readed_part = update_readed(readed_part);
 	return (dest);
 }
